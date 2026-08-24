@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Bosco Exchange</title>
+    <link rel="stylesheet" href="css principale.css">
+</head>
+
+<body>
+    <header class="head">
+        <div class="logo">
+            <img src="unnamed.png" alt="Logo Bosco Exchange">
+        </div>
+        <div class="slogan">
+            <h5>Devenir auteur<br>du changement autour<br>de sa communauté</h5>
+        </div>
+        <div class="search">
+            <input id="site-search" type="text" aria-label="Recherche" placeholder="Recherche">
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
+            ☰
+        </button>
+        <nav class="liens" aria-label="Navigation principale">
+            <a href="index.html">Accueil</a>
+            <a href="realisations.html">Réalisation</a>
+            <a href="programme.html">Programme</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <div id="search-feedback" class="search-feedback" aria-live="polite"></div>
+
+    <main class="page-shell">
+        <section class="hero-section">
+            <div class="hero-copy">
+                <p class="eyebrow">Contact</p>
+                <h1>Nous sommes à l’écoute de vos idées et de vos projets.</h1>
+                <p>
+                    Que vous soyez jeune, partenaire, institution ou acteur communautaire, nous souhaitons échanger avec
+                    vous pour construire des solutions concrètes et durables.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-wrap">
+            <div class="contact-layout">
+                <div class="contact-card">
+                    <h3>Informations</h3>
+                    <ul class="contact-list">
+                        <li><strong>Email :</strong> contact@boscoexchange.org</li>
+                        <li><strong>Téléphone :</strong> +243 994 953 862 </li>
+                        <li><strong>Adresse :</strong> Goma, RDC</li>
+                    </ul>
+                </div>
+
+                <form class="contact-card contact-form" action="mailto:contact@boscoexchange.org" method="post"
+                    enctype="text/plain">
+                    <h3>Envoyez-nous un message</h3>
+                    <label>
+                        Nom
+                        <input type="text" name="nom" placeholder="Votre nom" required>
+                    </label>
+                    <label>
+                        Email
+                        <input type="email" name="email" placeholder="Votre email" required>
+                    </label>
+                    <label>
+                        Message
+                        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+                    </label>
+                    <button type="submit" class="btn-primary">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Bosco Exchange Asbl | <a href="mailto: boscoexchange@gmail.com">boscoexchange@gmail.com</a></p>
+    </footer>
+
+    <script>
+        const toggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('.liens');
+
+        if (toggle && nav) {
+            toggle.addEventListener('click', () => {
+                const isOpen = nav.classList.toggle('open');
+                toggle.setAttribute('aria-expanded', String(isOpen));
+            });
+        }
+
+        const searchInput = document.getElementById('site-search');
+        const feedback = document.getElementById('search-feedback');
+
+        if (searchInput && feedback) {
+            searchInput.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    const query = searchInput.value.trim().toLowerCase();
+                    const sections = ['accueil', 'programme', 'réalisation', 'contact', 'jeunes', 'impact'];
+
+                    if (!query) {
+                        feedback.textContent = 'Saisissez un mot-clé pour lancer la recherche.';
+                        feedback.classList.add('show');
+                        return;
+                    }
+
+                    const match = sections.find(item => item.includes(query));
+                    if (match) {
+                        const target = match === 'accueil' ? 'index.html' : match === 'programme' ? 'programme.html' : match === 'réalisation' ? 'realisations.html' : match === 'contact' ? 'contact.html' : 'index.html';
+                        window.location.href = target;
+                    } else {
+                        feedback.textContent = 'Aucun résultat trouvé. Essayez “accueil”, “programme”, “réalisation” ou “contact”.';
+                        feedback.classList.add('show');
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,31 +1,150 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>programme et activites </title>
+    <title>Programme et activités | Bosco Exchange</title>
     <link rel="stylesheet" href="css principale.css">
 </head>
+
 <body>
     <header class="head">
-        <Div class="logo">  <img src="unnamed.png" alt=""> 
-            </Div>
-                     <div class="slogan">
-                <h5>Devenir auteur <br>
-                    du changement autour <br> 
-                    de sa communauté </h5></div>       
-                <div class="search"><input type="text"></div>
-        <div class="liens"> 
-            <a href="acceuils.html">acceuil</a>
-            <a href="realisations.html">realisation</a>
-            <a href="programme.html">programme</a>
+        <div class="logo">
+            <img src="unnamed.png" alt="Logo Bosco Exchange">
         </div>
+        <div class="slogan">
+            <h5>Devenir auteur<br>du changement autour<br>de sa communauté</h5>
+        </div>
+        <div class="search"><input type="text" aria-label="Recherche" placeholder="Recherche"></div>
+        <div class="search">
+            <input id="site-search" type="text" aria-label="Recherche" placeholder="Recherche">
+        </div>
+        <nav class="liens" aria-label="Navigation principale">
+            <a href="index.html">Accueil</a>
+            <a href="realisations.html">Réalisation</a>
+            <a href="programme.html">Programme</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
-    
+    <div id="search-feedback" class="search-feedback" aria-live="polite"></div>
 
-        </div>
-    </div>
-    </div> 
-    
+    <main class="page-shell">
+        <section class="hero-section">
+            <div class="hero-copy">
+                <p class="eyebrow">Programme</p>
+                <h1>Des activités concrètes pour former, inspirer et renforcer les jeunes.</h1>
+                <p>
+                    Bosco Exchange met en place des programmes de développement personnel, de leadership, de
+                    sensibilisation et de mobilisation communautaire pour transformer les talents en actions utiles pour
+                    la société.
+                </p>
+            </div>
+        </section>
+
+        <section class="content-wrap">
+            <h2 class="section-title">Nos programmes</h2>
+            <div class="card-grid three-columns">
+                <article class="feature-card blue-card">
+                    <h3>Formation pratique</h3>
+                    <p>Ateliers sur les compétences numériques, la communication, la gestion de projet et l’innovation
+                        sociale.</p>
+                </article>
+                <article class="feature-card blue-card">
+                    <h3>Leadership jeune</h3>
+                    <p>Accompagnement à la prise de parole, à la coordination d’équipe et à la mise en œuvre
+                        d’initiatives locales.</p>
+                </article>
+                <article class="feature-card blue-card">
+                    <h3>Mobilisation communautaire</h3>
+                    <p>Interventions dans les communautés pour renforcer la résilience, la cohésion et l’engagement
+                        collectif.</p>
+                </article>
+            </div>
+        </section>
+
+        <section class="content-wrap">
+            <h2 class="section-title">Démarche</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span>01</span>
+                    <div>
+                        <h3>Diagnostic</h3>
+                        <p>Identification des besoins et des priorités des jeunes et des communautés.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span>02</span>
+                    <div>
+                        <h3>Conception</h3>
+                        <p>Elaboration de programmes adaptés, participatifs et axés sur des résultats concrets.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <span>03</span>
+                    <div>
+                        <h3>Accompagnement</h3>
+                        <p>Suivi, coaching et appui pratique pour transformer les compétences en actions durables.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-wrap">
+            <h2 class="section-title">Axes d’intervention</h2>
+            <ul class="check-list">
+                <li>Développement des compétences techniques et professionnelles</li>
+                <li>Renforcement du sens de responsabilité et du leadership</li>
+                <li>Sensibilisation aux enjeux sociaux et environnementaux</li>
+                <li>Appui à la mise en place d’initiatives communautaires</li>
+                <li>Création d’un réseau de jeunes acteurs du changement</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 Bosco Exchange Asbl | <a href="mailto:contact@boscoexchange.org">contact@boscoexchange.org</a></p>
+    </footer>
+
+    <script>
+        const searchInput = document.getElementById('site-search');
+        const feedback = document.getElementById('search-feedback');
+
+        if (searchInput && feedback) {
+            searchInput.addEventListener('keydown', function (event) {
+                if (event.key === 'Enter') {
+                    event.preventDefault();
+                    const query = searchInput.value.trim().toLowerCase();
+                    if (!query) {
+                        feedback.textContent = 'Saisissez un mot-clé pour lancer la recherche.';
+                        feedback.classList.add('show');
+                        return;
+                    }
+
+                    let found = false;
+                    const searchable = Array.from(document.querySelectorAll('h1, h2, h3, p, li'));
+
+                    for (const element of searchable) {
+                        if (element.textContent.toLowerCase().includes(query)) {
+                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            element.style.outline = '3px solid rgba(74, 124, 255, 0.8)';
+                            element.style.outlineOffset = '4px';
+                            setTimeout(() => element.style.outline = 'none', 1800);
+                            feedback.textContent = `Résultat trouvé pour : “${searchInput.value.trim()}”`;
+                            feedback.classList.add('show');
+                            found = true;
+                            break;
+                        }
+                    }
+
+                    if (!found) {
+                        feedback.textContent = 'Aucun résultat trouvé. Essayez “jeunes”, “formation”, “impact”, “contact”.';
+                        feedback.classList.add('show');
+                    }
+                }
+            });
+        }
+    </script>
 </body>
+
 </html>

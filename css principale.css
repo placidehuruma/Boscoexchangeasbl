@@ -1,92 +1,797 @@
-.head { margin: auto;padding: 10px;
-     background-color: rgb(0, 0, 27);display: flex;justify-content: space-between;
-           }   
-             .logo img{ margin-left: 20px  ;width: 50px;height: 50px
-        ;}
-        .slogan h5{ padding: 0%;margin: 0px; color: rgb(232, 234, 241);}
-        
-        .search { 
-            padding: 10px;margin: 10pxb;
-            background-color: rgba(247, 248, 250, 0);
-            border: 50 px ; border-top-color: rgb(209, 220, 255);
-        }
-        .jbg{
-          border-radius: 20px;
-          background-color: transparent;
-          transition: 0.5s;
-        }
-        .liens a{
-            padding: 10px;margin: 10px;
-            color: rgb(234, 234, 238);
-            text-decoration: none;
-           
-        }
-                    
-      .principale { 
-              display: flex ;
-              justify-content: space-between;
-              margin-left: 50px;
-              margin-right: 50px;
-       }
-       .logo2 img{ margin: 20px  ;width: 500px;height: 500px;border-radius: 10px ;               
-       }
-       .description { 
-        margin: 50px ;
-        padding: 20px 20px;
-        justify-content: center;
-       }
-     .present { 
-              color: rgb(1, 6, 48);
-              
-              display: flex;
-              justify-content: center;
-              border-color: rgb(82, 83, 85);
-              background-color:rgb(rgb(241, 230, 230), rgb(67, 70, 67), rgb(18, 18, 65));
-             
-     }
+* {
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
 
-    
-    
-   .present present_in{ justify-content: center;
-                        justify-items: center;
-    }
-    .motivation { color: rgb(242, 242, 250);
-        justify-content: center;
-         margin: 50px; padding: 50px;
-        background-color: rgb(11, 11, 56);}
-        .objectifs {
-          justify-content: space-between;
-          display: flex;
-          gap: 40px;
-          margin: 20px 40px;
-        
-        }
-.train { 
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #f6f8fc 0%, #edf3ff 100%);
+  color: #172033;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+p {
+  margin: 0 0 1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin-top: 0;
+  line-height: 1.2;
+}
+
+.head {
+  margin: 0;
+  padding: 18px 32px;
+  background: linear-gradient(90deg, #030b2a 0%, #0d1d4c 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  box-shadow: 0 8px 22px rgba(0, 14, 48, 0.18);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo img {
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 4px;
+}
+
+.landing-hero {
+  max-width: 1200px;
+  margin: 32px auto 18px;
+  padding: 26px 30px 18px;
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr;
+  gap: 28px;
+  align-items: center;
+  animation: fadeUp 0.8s ease both;
+}
+
+.hero-text {
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(122, 160, 255, 0.3);
+  border-radius: 28px;
+  padding: 30px 28px;
+  box-shadow: 0 18px 35px rgba(15, 29, 69, 0.06);
+}
+
+.hero-text h1 {
+  font-size: clamp(2.3rem, 4vw, 3.6rem);
+  margin-bottom: 18px;
+  color: #0a143d;
+}
+
+.hero-text p {
+  font-size: 1.04rem;
+  color: #32476f;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin: 22px 0 18px;
+}
+
+.btn-primary,
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  color: aliceblue;
-    display: flex;
-   
+  padding: 12px 18px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0d1a60, #2b4bc3);
+  color: white;
+  box-shadow: 0 12px 24px rgba(13, 26, 96, 0.22);
+}
+
+.btn-secondary {
+  background: white;
+  color: #0d1a60;
+  border: 1px solid rgba(13, 26, 96, 0.18);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-2px);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(110px, 1fr));
+  gap: 14px;
+}
+
+.hero-stats div {
+  background: #edf4ff;
+  border: 1px solid #d9e6ff;
+  border-radius: 14px;
+  padding: 12px 10px;
+  text-align: center;
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 1.3rem;
+  color: #0d1a60;
+}
+
+.hero-stats span {
+  font-size: 0.76rem;
+  color: #4d5f86;
+}
+
+.hero-panel {
+  position: relative;
+  padding: 14px;
+  border-radius: 28px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(228, 236, 255, 0.9));
+  border: 1px solid rgba(122, 160, 255, 0.35);
+  box-shadow: 0 18px 38px rgba(17, 27, 58, 0.1);
+  animation: fadeUp 1s ease both 0.12s;
+}
+
+.hero-panel img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.mini-card {
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: 24px;
+  background: rgba(6, 13, 31, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 16px;
+  padding: 16px 18px;
+  backdrop-filter: blur(6px);
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(122, 160, 255, 0.2);
+  border: 1px solid rgba(122, 160, 255, 0.5);
+  color: #dfe9ff;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-     .convoi1 { color: aliceblue;
-      background-image: url(aprendre\ ensemble\ \ 2025-11-29\ at\ 09.22.00.jpeg);
-    padding: 100px;
-    ;
-    max-width: max-content;
-     min-width: 100%
-      }
-      .convoi2 {
-        color: aliceblue;
-        padding: 100px;
-        background-image: url(julien\ sensibilisation\ vbg.jpeg);
-         min-width: 100%;
-         background-position: bottom center
 
-      }
-      .convoi3 { 
-        background-image: url( IMG_8512.jpg );
-        padding: 100px;
-        will-change: scroll-position;
-         min-width: 100%
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-      }
+.slogan h5 {
+  margin: 0;
+  color: #edf3ff;
+  line-height: 1.4;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+}
+
+.search input {
+  padding: 10px 14px;
+  border: 1px solid rgba(209, 220, 255, 0.7);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  min-width: 160px;
+}
+
+.search input::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.menu-toggle {
+  display: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.liens {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.liens a {
+  padding: 10px 14px;
+  color: #ebf1ff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.3s ease;
+}
+
+.liens a:hover {
+  background: rgba(255, 255, 255, 0.08);
+  text-decoration: none;
+}
+
+.train {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(250px, 1fr));
+  gap: 22px;
+  margin: 40px 50px;
+  color: #ffffff;
+}
+
+.convoi1,
+.convoi2,
+.convoi3 {
+  position: relative;
+  padding: 28px 24px 24px;
+  border-radius: 20px;
+  min-height: 310px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  box-shadow: 0 14px 30px rgba(6, 17, 41, 0.18);
+}
+
+.convoi1::before,
+.convoi2::before,
+.convoi3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(7, 10, 31, 0.18), rgba(5, 8, 29, 0.72));
+}
+
+.convoi1>*,
+.convoi2>*,
+.convoi3>* {
+  position: relative;
+  z-index: 1;
+}
+
+.convoi1 {
+  background-image: url("aprendre ensemble  2025-11-29 at 09.22.00.jpeg");
+}
+
+.convoi2 {
+  background-image: url("julien sensibilisation vbg.jpeg");
+}
+
+.convoi3 {
+  background-image: url("IMG_8512.jpg");
+}
+
+.convoi1 h2,
+.convoi2 h2,
+.convoi3 h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+.present {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 50px 50px 40px;
+  background: linear-gradient(135deg, #f7f9ff 0%, #e8eefc 100%);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.logo2 {
+  flex: 1;
+  max-width: 480px;
+}
+
+.logo2 img {
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 16px 32px rgba(17, 27, 59, 0.12);
+}
+
+.description {
+  flex: 1;
+  padding: 12px 8px;
+}
+
+.description h1 {
+  margin-bottom: 18px;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #0d1a60;
+}
+
+.section-title {
+  margin: 35px 50px 20px;
+  font-size: clamp(1.8rem, 2vw, 2.4rem);
+  color: #0d1a60;
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 110px;
+  height: 4px;
+  background: linear-gradient(90deg, #0d1a60, #6d8cff);
+  border-radius: 6px;
+}
+
+.objectifs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 28px;
+  margin: 0 40px 50px;
+}
+
+.Decouvrir,
+.ici,
+.here {
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 26px 22px;
+  box-shadow: 0 10px 24px rgba(20, 29, 54, 0.07);
+  border-top: 4px solid #7aa0ff;
+}
+
+.Decouvrir h3,
+.ici h3,
+.here h3 {
+  color: #0d1a60;
+  margin-bottom: 12px;
+}
+
+.convoi4 {
+  margin: 0 50px 50px;
+  padding: 28px 30px;
+  background: linear-gradient(135deg, #eef4ff 0%, #f9fbff 100%);
+  border: 1px solid #d7e2ff;
+  border-radius: 20px;
+  box-shadow: 0 12px 26px rgba(18, 33, 69, 0.06);
+}
+
+.convoi4 h3 {
+  color: #0d1a60;
+  margin-bottom: 12px;
+}
+
+.services {
+  margin: 18px 0 22px;
+  padding-left: 18px;
+  line-height: 1.9;
+  color: #28395f;
+}
+
+.outcomes {
+  font-weight: 600;
+  color: #0d1a60;
+}
+
+.btn-contact {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #0d1a60, #2b4bc3);
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 8px 18px rgba(13, 26, 96, 0.2);
+}
+
+.motivation {
+  color: #edf4ff;
+  margin: 0 50px 60px;
+  padding: 42px 36px;
+  background: linear-gradient(135deg, #0b153f 0%, #162b6c 100%);
+  border-radius: 22px;
+  box-shadow: 0 18px 32px rgba(10, 15, 36, 0.18);
+}
+
+.motivation h2 {
+  margin-bottom: 12px;
+}
+
+.page-shell {
+  padding: 30px 0 60px;
+}
+
+.hero-section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 30px 30px;
+}
+
+.hero-alt {
+  padding-top: 50px;
+}
+
+.hero-copy {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(141, 163, 223, 0.4);
+  border-radius: 24px;
+  padding: 36px 30px;
+  box-shadow: 0 12px 30px rgba(17, 26, 52, 0.06);
+}
+
+.eyebrow {
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #4967d0;
+}
+
+.hero-copy h1 {
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  color: #0d1a60;
+  margin-bottom: 16px;
+}
+
+.content-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 30px 10px;
+}
+
+.card-grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(260px, 1fr));
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 18px;
+  padding: 24px 22px;
+  box-shadow: 0 10px 26px rgba(20, 29, 54, 0.08);
+  border-top: 4px solid #7aa0ff;
+}
+
+.blue-card {
+  background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+}
+
+.timeline {
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.timeline-item {
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px 22px;
+  box-shadow: 0 8px 22px rgba(20, 29, 54, 0.06);
+}
+
+.timeline-item span {
+  display: inline-flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #0d1a60;
+  color: #fff;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.check-list {
+  margin: 20px 0 0;
+  padding-left: 18px;
+  line-height: 2;
+  color: #23335c;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 20px;
+}
+
+.project-card {
+  position: relative;
+  min-height: 300px;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(14, 22, 46, 0.12);
+  background-size: cover;
+  background-position: center;
+}
+
+.project-1 {
+  background-image: url("aprendre ensemble  2025-11-29 at 09.22.00.jpeg");
+}
+
+.project-2 {
+  background-image: url("julien sensibilisation vbg.jpeg");
+}
+
+.project-3 {
+  background-image: url("IMG_8512.jpg");
+}
+
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  background: linear-gradient(180deg, rgba(7, 10, 31, 0.1), rgba(6, 11, 28, 0.78));
+  color: #fff;
+}
+
+.project-overlay h3 {
+  margin-bottom: 10px;
+}
+
+.site-footer {
+  background: #051536;
+  color: #eaf0ff;
+  padding: 26px 20px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.site-footer a {
+  color: #dfe9ff;
+  text-decoration: none;
+}
+
+.search-feedback {
+  max-width: 1200px;
+  margin: 12px auto 0;
+  padding: 0 30px;
+  color: #0d1a60;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: all 0.2s ease;
+}
+
+.search-feedback.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.contact-layout {
+  max-width: 1200px;
+  margin: 24px auto 0;
+  padding: 0 30px 20px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 24px;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid #d9e6ff;
+  border-radius: 22px;
+  padding: 24px 22px;
+  box-shadow: 0 12px 28px rgba(17, 27, 58, 0.06);
+}
+
+.contact-card h3 {
+  color: #0d1a60;
+  margin-bottom: 16px;
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  line-height: 2;
+  color: #2a3d67;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #23335c;
+  font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #dfe8ff;
+  border-radius: 12px;
+  background: #f8faff;
+  font: inherit;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.about-section {
+  max-width: 1200px;
+  margin: 18px auto 0;
+  padding: 22px 30px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.about-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  box-shadow: 0 18px 38px rgba(13, 26, 96, 0.16);
+}
+
+.about-content {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(122, 160, 255, 0.25);
+  border-radius: 24px;
+  padding: 28px 26px;
+  box-shadow: 0 12px 28px rgba(17, 26, 52, 0.06);
+}
+
+.about-content h2 {
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  color: #0d1a60;
+  margin-bottom: 14px;
+}
+
+.about-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.feature-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(180deg, #eef5ff 0%, #ffffff 100%);
+  border: 1px solid #dbe7ff;
+  border-radius: 999px;
+  padding: 8px 14px;
+  color: #17306b;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+
+  .landing-hero,
+  .about-section,
+  .train,
+  .objectifs,
+  .present,
+  .three-columns,
+  .two-columns,
+  .project-grid {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .landing-hero,
+  .about-section {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .menu-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .liens {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    padding-top: 8px;
+  }
+
+  .liens.open {
+    display: flex;
+  }
+
+  .present {
+    padding: 24px 20px;
+  }
+
+  .section-title,
+  .convoi4,
+  .motivation,
+  .objectifs,
+  .train {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .head {
+    padding: 18px 20px;
+  }
+
+  .hero-section,
+  .content-wrap {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
